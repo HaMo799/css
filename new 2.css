@@ -42,7 +42,7 @@ body {
   }
 
   /* Display the sensor info on hover */
-  .sensor-item:hover .sensor-info {
+  .sensor-item,sensor-data:hover .sensor-info {
     display: block;
   }
 
