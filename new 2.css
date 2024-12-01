@@ -1,0 +1,230 @@
+body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #3a6186, #89253e);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+	
+	.sensor-menu {
+    position: relative;
+	 background: rgba(0, 0, 0, 0.8);
+  }
+  
+    .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  
+   /* Show the menu when hovering over the dropdown */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }	
+
+  /* Hide sensor info by default */
+  .sensor-info {
+    display: none;
+    position: absolute;
+      right: 100%; /* Position to the left of the hovered item */
+    top: 0;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+
+  /* Display the sensor info on hover */
+  .sensor-item:hover .sensor-info {
+    display: block;
+  }
+
+  /* Style the sensor title */
+  .sensor-title {
+    margin: 0;
+    color: #f1c40f;
+  }
+
+  /* Additional styling for the dropdown items */
+  .dropdown-item {
+    position: relative;
+    padding-right: 20px;
+  }
+
+  /* Add hover effect to dropdown items */
+  .dropdown-item:hover {
+    color: #f1c40f;
+    transform: translateX(5px);
+  }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Boot screen (Welcome screen) styles */
+    .boot-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      animation: fadeOut 3s forwards;
+    }
+
+    .boot-screen .spinner {
+      font-size: 50px;
+    }
+	
+	.section-title {
+	color:#f1c40f;
+	}
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Header styles */
+    .header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+	
+	.team-member {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+	.team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: #f1c40f;
+    }
+
+    .menu {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      justify-content: flex-end;
+	  max-width=100%;
+      }
+
+
+    .menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #f1c40f;
+    }
+
+    /* Main content */
+    #page {
+      display: none;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1200px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Footer styles */
+    .footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #aaa;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: auto;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Table styles */
+    .sensor-table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    .sensor-table td:hover {
+      background-color: rgba(0, 0, 0, 0.6); 
+      transform: translateY(-5px); 
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); 
+      transition: all 0.3s ease;
+    }
+
+    .sensor-table td i {
+      transition: color 0.3s ease;
+    }
+
+    .sensor-table td:hover i {
+      color: #f1c40f;
+    }
+
+    .sensor-table th,
+    .sensor-table td {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .sensor-table th {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .sensor-table td {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .sensor-table i {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+	
+	.fade-text {
+    animation: fadeInOut 5s ease-in-out infinite; /* Infinite loop for animation */
+    opacity: 0;
+    animation-fill-mode: both; /* Retain visibility during animation */
+  }
