@@ -9,7 +9,24 @@ body {
       display: flex;
       flex-direction: column;
     }
+    
+    .iframe{
+    display: block;
+     position: fixed;
+      top: 60px; 
+      left: 0; 
+      width: 100%; 
+      height: calc(100% - 60px); 
+      border: none;
+	}
 	
+	.centerplease{
+	display: inline-grid;
+	height: 50vh; /* Full viewport height for demo */
+  	align-items: center; /* Vertical center */
+}
+	
+		
 	.sensor-menu {
     position: relative;
 	 background: rgba(0, 0, 0, 0.8);
@@ -30,9 +47,9 @@ body {
   .sensor-info {
     display: none;
     position: absolute;
-      right: 100%; /* Position to the left of the hovered item */
+    right: 100%; /* Position to the left of the hovered item */
     top: 0;
-    width: 250px;
+    width: 500px;
     background: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border-radius: 10px;
@@ -40,12 +57,36 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     z-index: 10;
   }
+  
+    /* Hide sensor info by default */
+  .sensordata-info {
+  display: none;
+  padding: 6px 0 0 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7); /* Add a background for better visibility */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  position: absolute; /* Position it on top of the cell */
+  top: 0;
+  left: 0;
+  width: 100%; /* Adjust the width to overlay the entire cell */
+  height: 100%; /* Adjust the height to overlay the entire cell */
+  justify-content: center;
+  align-items: center;
+}
 
-  /* Display the sensor info on hover */
-  .sensor-item,sensor-data:hover .sensor-info {
-    display: block;
+.sensor-data {
+  position: relative; /* To position the .sensordata-info relative to the cell */
+}
+
+.sensor-data:hover .sensordata-info {
+  display: block; /* Show the info on hover */
   }
 
+  /* Display the sensor info on hover */
+  .sensor-item:hover .sensor-info {
+    display: block;
+  }
+  
   /* Style the sensor title */
   .sensor-title {
     margin: 0;
@@ -113,6 +154,8 @@ body {
       background: rgba(0, 0, 0, 0.7);
       border-radius: 15px;
       padding: 20px;
+      height:100%;
+      width:100%;
       color: #fff;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -170,17 +213,6 @@ body {
       100% { opacity: 1; }
     }
 
-    /* Footer styles */
-    .footer {
-      background-color: rgba(0, 0, 0, 0.7);
-      color: #aaa;
-      text-align: center;
-      padding: 10px 0;
-      margin-top: auto;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
 
     /* Table styles */
     .sensor-table {
@@ -228,3 +260,74 @@ body {
     opacity: 0;
     animation-fill-mode: both; /* Retain visibility during animation */
   }
+  
+  .footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgb(170, 170, 170);
+  text-align: center;
+  padding: 10px 0px;
+  margin-top: auto;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+}
+
+
+  /* Button Container for Perspective */
+    .button-container {
+      position: relative;
+    }
+
+    /* Buy Button Styling */
+    .buy-button {
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #ffcc00;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+     }
+     
+      .buy-text {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #4b5563; /* Subtle text color */
+    }
+
+    /* Sliding Effect on Hover */
+    .buy-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #ffcc00, #ffae00);
+      z-index: -1;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .buy-button:hover::before {
+      left: 0;
+    }
+
+    /* Glowing Effect */
+    .buy-button:hover {
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.5), 0 0 40px rgba(255, 174, 0, 0.6);
+      color: #1e293b;
+      background-color: #ffcc00;
+    }
+
+    /* Focus State */
+    .buy-button:focus {
+      outline: none;
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.8);
+    }
