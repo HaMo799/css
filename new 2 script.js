@@ -5,7 +5,41 @@
        // document.getElementById('page').style.display = 'block'; // Show the page content
     //  }, 3000); // Simulated loading time (3 seconds)
    // });
-    
+   
+   
+function updateSensorData() {
+    // URL of the endpoint
+    const endpoint = 'https://script.google.com/macros/s/AKfycbwmBeoU5PlqicEG1b8kAtKrpDZJlMqjdjZu6CdCY89NFCx1lXZbbif_HDv_p5nTAzU/exec?sts=read';
+
+    // Fetch data from the endpoint
+    fetch(endpoint)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Update the sensor values on the webpage
+            document.getElementById('temp').textContent = `${data.temperature} `;
+            document.getElementById('humd').textContent = `${data.humidity} %`;
+            document.getElementById('bpm').textContent = `${data.heart_rate} BPM`;
+            document.getElementById('spo2').textContent = `${data.spo2} %`;
+            document.getElementById('airtemp').textContent = `${data.air_temperature} `;
+            document.getElementById('earlydiag').textContent = `${data.earlydig}`;
+
+        })
+        .catch(error => {
+            console.error('There was a problem fetching the sensor data:', error);
+        });
+}
+  // Initial fetch to populate data when the page loads
+updateSensorData();
+setInterval(updateSensorData, 2000);
+
+
+
+
     
       window.onload = function () {
       const loader = document.getElementById("boot-screen");
