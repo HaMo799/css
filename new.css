@@ -1,0 +1,498 @@
+﻿body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #3a6186, #89253e);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+        
+ h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  overflow: hidden;
+}
+
+h1 span {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+    
+    .iframe{
+     display: block;
+     position: absolute;  /* Or relative, depending on your layout */
+     left: 0;
+    width: 100%;
+    border: none;	}
+	
+	.centerplease{
+	display: inline-grid;
+	height: 50vh; /* Full viewport height for demo */
+  	align-items: center; /* Vertical center */
+}
+	
+		
+	.sensor-menu {
+    position: relative;
+	 background: rgba(0, 0, 0, 0.8);
+  }
+  
+    .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  
+   /* Show the menu when hovering over the dropdown */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }	
+
+  /* Hide sensor info by default */
+  .sensor-info {
+    display: none;
+    position: absolute;
+    right: 100%; /* Position to the left of the hovered item */
+    top: 0;
+    width: 500px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+  
+    /* Hide sensor info by default */
+  .sensordata-info {
+  display: none;
+  padding: 6px 0 0 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7); /* Add a background for better visibility */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  position: absolute; /* Position it on top of the cell */
+  top: 0;
+  left: 0;
+  width: 100%; /* Adjust the width to overlay the entire cell */
+  height: 100%; /* Adjust the height to overlay the entire cell */
+  justify-content: center;
+  align-items: center;
+}
+
+.sensor-data {
+  position: relative; /* To position the .sensordata-info relative to the cell */
+}
+
+.sensor-data:hover .sensordata-info {
+  display: block; /* Show the info on hover */
+  }
+
+  /* Display the sensor info on hover */
+  .sensor-item:hover .sensor-info {
+    display: block;
+  }
+  
+  /* Style the sensor title */
+  .sensor-title {
+    margin: 0;
+    color: #f1c40f;
+  }
+
+  /* Additional styling for the dropdown items */
+  .dropdown-item {
+    position: relative;
+    padding-right: 20px;
+  }
+
+  /* Add hover effect to dropdown items */
+  .dropdown-item:hover {
+    color: #f1c40f;
+    transform: translateX(5px);
+  }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Boot screen (Welcome screen) styles */
+    .boot-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+    }
+
+    .boot-screen .spinner {
+      font-size: 50px;
+    }
+	
+	.section-title {
+	color:#f1c40f;
+	}
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Header styles */
+    .header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+	
+	.team-member {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 20px;
+      height:100%;
+      width:100%;
+      color: #fff;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+	.team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: #f1c40f;
+    }
+
+    .menu {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      justify-content: flex-end;
+	  max-width=100%;
+      }
+
+
+    .menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #f1c40f;
+    }
+
+    /* Main content */
+    #page {
+      display: none;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1200px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+
+    /* Table styles */
+    .sensor-table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    .sensor-table td:hover {
+      background-color: rgba(0, 0, 0, 0.6); 
+      transform: translateY(-5px); 
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); 
+      transition: all 0.3s ease;
+    }
+
+    .sensor-table td i {
+      transition: color 0.3s ease;
+    }
+
+    .sensor-table td:hover i {
+      color: #f1c40f;
+    }
+
+    .sensor-table th,
+    .sensor-table td {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .sensor-table th {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .sensor-table td {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .sensor-table i {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+	
+	.fade-text {
+    animation: fadeInOut 5s ease-in-out infinite; /* Infinite loop for animation */
+    opacity: 0;
+    animation-fill-mode: both; /* Retain visibility during animation */
+  }
+  
+  .footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgb(170, 170, 170);
+  text-align: center;
+  padding: 10px 0px;
+  margin-top: auto;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+}
+
+
+  /* Button Container for Perspective */
+    .button-container {
+      position: relative;
+    }
+
+    /* Buy Button Styling */
+    .buy-button {
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #ffcc00;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s ease-in-out;
+     }
+     
+      .buy-text {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #4b5563; /* Subtle text color */
+    }
+
+    /* Sliding Effect on Hover */
+    .buy-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #ffcc00, #ffae00);
+      z-index: -1;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .buy-button:hover::before {
+      left: 0;
+    }
+
+    /* Glowing Effect */
+    .buy-button:hover {
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.5), 0 0 40px rgba(255, 174, 0, 0.6);
+      color: #1e293b;
+      background-color: #ffcc00;
+    }
+
+    /* Focus State */
+    .buy-button:focus {
+      outline: none;
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.8);
+    }
+    
+   #earlydiag {
+  display: inline-block; /* Keep the text as an inline-block element */
+  width: 160px; /* Set a fixed width for the text container */
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Break long words to fit within the width */
+  overflow-wrap: break-word; /* Ensure long words will break */
+  font-size: 20px; /* Adjust font size as needed */
+  text-align: center; /* Center the text */
+} 
+
+
+.responsive-text {
+  color: rgb(131, 235, 52);
+  font-weight: bold;
+  font-size: 5vw; /* Responsive font size (5% of viewport width) */
+  text-align: center;
+}
+
+.responsive-paragraph {
+  font-size: 3vw; /* Adjust the font size for the paragraph */
+  text-align: center;
+  line-height: 1.5; /* Space between lines for better readability */
+  margin-top: 10px;
+}   
+
+/* Default style for larger screens */
+#animated-title {
+  font-size: 2em;
+  line-height: 1.6;
+  transition: opacity 1s, transform 1s;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  #animated-title {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+
+
+.sensor-data:hover .sensordata-info {
+  display: none; /* Show the info on hover */
+  }
+
+
+  .sensor-data, .sensor-info, .team-member {
+    padding: 10px;
+  }
+
+  /* For team section, make it a single column on mobile */
+  #team table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  #team td {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Modify the header layout for better alignment */
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust the team member section to be stacked vertically on mobile */
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sensor-info {
+    display: none !important;
+  }
+
+  .sensor-description {
+    display: none !important;
+  }
+
+  /* Optionally, hide the entire table or parts of it for better mobile responsiveness */
+  .sensor-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }  
+ }
+
+@media (min-width: 769px) {
+
+
+
+
+
+  /* Keep the team section in a grid layout on larger screens */
+  #team table {
+    width: 100%;
+    table-layout: auto;
+  }
+  
+  .responsive-text {
+    font-size: 36px; /* Set a specific font size for larger screens */
+  }
+
+  .responsive-paragraph {
+    font-size: 18px; /* Set a readable font size for larger screens */
+    max-width: 800px; /* Limit the paragraph width for better readability */
+    margin: 0 auto; /* Center the paragraph */
+  }
+  
+  
+  
+  #team td {
+    width: 25%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Sensor Info Section for PC layout */
+  #sensor-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+  
+  }
+  
+  
+  @media (max-width: 500px) {
+  #animated-title {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .responsive-text {
+    font-size: 8vw; /* Increase the font size on smaller screens */
+  }
+
+  .responsive-paragraph {
+    font-size: 5vw; /* Adjust font size for mobile */
+  }
+  
+  }
+
