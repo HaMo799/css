@@ -10,15 +10,31 @@ body {
       flex-direction: column;
     }
     
+        
+ h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  overflow: hidden;
+}
+
+h1 span {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+    
     .iframe{
-    display: block;
-     position: fixed;
-      top: 60px; 
-      left: 0; 
-      width: 100%; 
-      height: calc(100% - 60px); 
-      border: none;
-	}
+     display: block;
+     position: absolute;  /* Or relative, depending on your layout */
+     left: 0;
+    width: 100%;
+    border: none;	}
 	
 	.centerplease{
 	display: inline-grid;
@@ -124,7 +140,6 @@ body {
       align-items: center;
       z-index: 9999;
       opacity: 1;
-      animation: fadeOut 3s forwards;
     }
 
     .boot-screen .spinner {
@@ -331,3 +346,153 @@ body {
       outline: none;
       box-shadow: 0 0 25px rgba(255, 204, 0, 0.8);
     }
+    
+   #earlydiag {
+  display: inline-block; /* Keep the text as an inline-block element */
+  width: 160px; /* Set a fixed width for the text container */
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word; /* Break long words to fit within the width */
+  overflow-wrap: break-word; /* Ensure long words will break */
+  font-size: 20px; /* Adjust font size as needed */
+  text-align: center; /* Center the text */
+} 
+
+
+.responsive-text {
+  color: rgb(131, 235, 52);
+  font-weight: bold;
+  font-size: 5vw; /* Responsive font size (5% of viewport width) */
+  text-align: center;
+}
+
+.responsive-paragraph {
+  font-size: 3vw; /* Adjust the font size for the paragraph */
+  text-align: center;
+  line-height: 1.5; /* Space between lines for better readability */
+  margin-top: 10px;
+}   
+
+/* Default style for larger screens */
+#animated-title {
+  font-size: 2em;
+  line-height: 1.6;
+  transition: opacity 1s, transform 1s;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  #animated-title {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+
+
+.sensor-data:hover .sensordata-info {
+  display: none; /* Show the info on hover */
+  }
+
+
+  .sensor-data, .sensor-info, .team-member {
+    padding: 10px;
+  }
+
+  /* For team section, make it a single column on mobile */
+  #team table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  #team td {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Modify the header layout for better alignment */
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust the team member section to be stacked vertically on mobile */
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sensor-info {
+    display: none !important;
+  }
+
+  .sensor-description {
+    display: none !important;
+  }
+
+  /* Optionally, hide the entire table or parts of it for better mobile responsiveness */
+  .sensor-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }  
+ }
+
+@media (min-width: 769px) {
+
+
+
+
+
+  /* Keep the team section in a grid layout on larger screens */
+  #team table {
+    width: 100%;
+    table-layout: auto;
+  }
+  
+  .responsive-text {
+    font-size: 36px; /* Set a specific font size for larger screens */
+  }
+
+  .responsive-paragraph {
+    font-size: 18px; /* Set a readable font size for larger screens */
+    max-width: 800px; /* Limit the paragraph width for better readability */
+    margin: 0 auto; /* Center the paragraph */
+  }
+  
+  
+  
+  #team td {
+    width: 25%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Sensor Info Section for PC layout */
+  #sensor-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+  
+  }
+  
+  
+  @media (max-width: 500px) {
+  #animated-title {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .responsive-text {
+    font-size: 8vw; /* Increase the font size on smaller screens */
+  }
+
+  .responsive-paragraph {
+    font-size: 5vw; /* Adjust font size for mobile */
+  }
+  
+  }
+
